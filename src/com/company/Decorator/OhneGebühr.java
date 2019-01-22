@@ -1,6 +1,5 @@
 package com.company.Decorator;
 
-import com.company.WR;
 
 public class OhneGebühr implements Logger{
 

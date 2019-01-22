@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.Decorator.OhneGebühr;
+import com.company.Decorator.mitGebühr;
 
 public abstract class WR implements IUmrechnen
 {
@@ -12,6 +13,7 @@ public abstract class WR implements IUmrechnen
     private static double neuerbetrag;
 
     private OhneGebühr ohneGeb = new OhneGebühr();
+    private mitGebühr mitGeb = new mitGebühr();
 
     public void setNextWR(WR nextWR){
         this.nextWR = nextWR;
@@ -22,6 +24,7 @@ public abstract class WR implements IUmrechnen
         if(this.variante.equals(variante)){
             this.neuerbetrag = rechner(betrag);
                 ohneGeb.assemble(variante,betrag);
+                mitGeb.assemble(variante,betrag);
             return neuerbetrag;
         }
         else if(nextWR !=null){
