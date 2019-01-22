@@ -9,6 +9,7 @@ public class Adapter implements ISammelumrechnung {
     private WR wr;
 
     public Adapter(WR wr) {
+
         this.wr = wr;
     }
 
