@@ -1,5 +1,9 @@
 package com.company;
 
+import com.company.LoggingDAO.Log;
+
+import java.sql.SQLException;
+
 public class EUR2RUBEL extends WR {
 
     protected double kurs;
@@ -11,6 +15,13 @@ public class EUR2RUBEL extends WR {
 
     @Override
     protected double rechner(double betrag) {
-        return betrag * kurs;
+        Log log = new Log(this.variante,betrag,this.kurs,umrechnerBefehle.rechnen(betrag,kurs));
+        try{
+            this.logimp.addLog(log);
+        }
+        catch (SQLException se){
+            se.getErrorCode();
+        }
+        return umrechnerBefehle.rechnen(betrag,kurs);
     }
 }

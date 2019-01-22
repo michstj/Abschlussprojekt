@@ -1,7 +1,10 @@
 package com.company;
 
+import com.company.Command.UmrechnerBefehle;
 import com.company.Decorator.OhneGebühr;
 import com.company.Decorator.mitGebühr;
+import com.company.LoggingDAO.Log;
+import com.company.LoggingDAO.LogImplementation;
 
 public abstract class WR implements IUmrechnen
 {
@@ -12,8 +15,13 @@ public abstract class WR implements IUmrechnen
     public static double RUBEL = 75.41;
     private static double neuerbetrag;
 
+    protected UmrechnerBefehle umrechnerBefehle = new UmrechnerBefehle(this);
+
     private OhneGebühr ohneGeb = new OhneGebühr();
     private mitGebühr mitGeb = new mitGebühr();
+
+    protected LogImplementation logimp = new LogImplementation();
+
 
     public void setNextWR(WR nextWR){
         this.nextWR = nextWR;
