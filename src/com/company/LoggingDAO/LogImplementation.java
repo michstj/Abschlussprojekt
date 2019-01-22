@@ -1,5 +1,7 @@
 package com.company.LoggingDAO;
 
+import com.company.WR;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,6 +25,8 @@ public class LogImplementation implements DaoLog {
         ps.executeUpdate();
 
         ps.close();
+
+
 
     }
 

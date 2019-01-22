@@ -17,7 +17,10 @@ public class EUR2DOLLAR extends WR {
     protected double rechner(double betrag) {
         Log log = new Log(this.variante,betrag,this.kurs,umrechnerBefehle.rechnen(betrag,kurs));
         try{
+
             this.logimp.addLog(log);
+            stack.push(log);
+
         }
         catch (SQLException se){
             se.getErrorCode();

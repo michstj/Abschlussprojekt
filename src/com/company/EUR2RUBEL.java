@@ -18,6 +18,7 @@ public class EUR2RUBEL extends WR {
         Log log = new Log(this.variante,betrag,this.kurs,umrechnerBefehle.rechnen(betrag,kurs));
         try{
             this.logimp.addLog(log);
+            stack.push(log);
         }
         catch (SQLException se){
             se.getErrorCode();

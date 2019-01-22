@@ -16,4 +16,13 @@ public class UmrechnerBefehle implements Commands {
         return betrag*kurs;
     }
 
+    @Override
+    public void undo() {
+
+    }
+
+    @Override
+    public void redo() {
+
+    }
 }

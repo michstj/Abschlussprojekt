@@ -6,6 +6,8 @@ import com.company.Decorator.mitGebühr;
 import com.company.LoggingDAO.Log;
 import com.company.LoggingDAO.LogImplementation;
 
+import java.util.Stack;
+
 public abstract class WR implements IUmrechnen
 {
     protected WR nextWR;
@@ -14,6 +16,9 @@ public abstract class WR implements IUmrechnen
     public static double DOLLAR = 1.22;
     public static double RUBEL = 75.41;
     private static double neuerbetrag;
+
+
+    protected static Stack<Log> stack = new Stack<>();
 
     protected UmrechnerBefehle umrechnerBefehle = new UmrechnerBefehle(this);
 
@@ -38,12 +43,20 @@ public abstract class WR implements IUmrechnen
         else if(nextWR !=null){
             nextWR.umrechnen(variante, betrag);
         }
-        else if(nextWR == null){
-            return neuerbetrag;
-        }
 
         return neuerbetrag;
     }
+
+    public int getStacksize(){
+        return stack.size();
+    }
+    public Log getStackTop(){
+        return stack.peek();
+    }
+    public void stackUndo(){
+        stack.pop();
+    }
+
 
     abstract protected double rechner(double betrag);
 
