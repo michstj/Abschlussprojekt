@@ -20,7 +20,7 @@ public class WRTest {
     public void setNextWR() {
         eur2dollar.setNextWR(eur2yen);
         eur2yen.setNextWR(eur2rubel);
-        assertEquals("EUR2DOLLAR",eur2dollar.variante);
+        assertEquals(eur2yen,eur2dollar.nextWR);
 
     }
 
