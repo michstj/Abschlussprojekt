@@ -15,9 +15,11 @@ public class Adapter implements ISammelumrechnung {
 
     @Override
     public double sammelumrechnen(double[] betraege, String variante) {
+        double temp = 0;
         for (double betrag:betraege) {
-            wr.umrechnen(variante, betrag);
+
+            temp =+ wr.umrechnen(variante, betrag);
         }
-        return 0;
+        return temp;
     }
 }

@@ -25,16 +25,16 @@ public class Main {
     public static void main(String[] args) {
         WR WRChain = getChainOfWR();
 
-        double test = WRChain.umrechnen("EUR2DOLLAR",10);
-        double test2 =  WRChain.umrechnen("EUR2YEN",15);
-        double test3 =  WRChain.umrechnen("EUR2RUBEL",15);
+        //double test = WRChain.umrechnen("EUR2DOLLAR",10);
+        //double test2 =  WRChain.umrechnen("EUR2YEN",15);
+        //double test3 =  WRChain.umrechnen("EUR2RUBEL",15);
 
 
-/*
+
         double[] betrage = {10,20,30,40,50};
         Adapter adapter = new Adapter(WRChain);
-        adapter.sammelumrechnen(betrage,"EUR2YEN");
-*/
+        System.out.println(adapter.sammelumrechnen(betrage,"EUR2YEN"));
+
         /*
         Log log = new Log("EUR2YEN",10,1.2,12);
         LogImplementation logimp = new LogImplementation();
