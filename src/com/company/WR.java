@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.Command.UmrechnerBefehle;
+import com.company.Decorator.Logger;
 import com.company.Decorator.OhneGebühr;
 import com.company.Decorator.mitGebühr;
 import com.company.LoggingDAO.Log;
@@ -22,8 +23,6 @@ public abstract class WR implements IUmrechnen
 
     protected UmrechnerBefehle umrechnerBefehle = new UmrechnerBefehle(this);
 
-    private OhneGebühr ohneGeb = new OhneGebühr();
-    private mitGebühr mitGeb = new mitGebühr();
 
     protected LogImplementation logimp = new LogImplementation();
 
@@ -36,8 +35,8 @@ public abstract class WR implements IUmrechnen
 
         if(this.variante.equals(variante)){
             this.neuerbetrag = rechner(betrag);
-                ohneGeb.assemble(variante,betrag);
-                mitGeb.assemble(variante,betrag);
+            Logger mitGeb = new mitGebühr(this);
+                mitGeb.assemble();
             return neuerbetrag;
         }
         else if(nextWR !=null){
@@ -57,6 +56,14 @@ public abstract class WR implements IUmrechnen
         stack.pop();
     }
 
+
+    public String getVariante() {
+        return variante;
+    }
+
+    public static double getNeuerbetrag() {
+        return neuerbetrag;
+    }
 
     abstract protected double rechner(double betrag);
 

@@ -26,10 +26,10 @@ public class Main {
         WR WRChain = getChainOfWR();
 
         //double test = WRChain.umrechnen("EUR2DOLLAR",10);
-        //double test2 =  WRChain.umrechnen("EUR2YEN",15);
+        //double test2 =  WRChain.umrechnen("EUR2YEN",50);
         //double test3 =  WRChain.umrechnen("EUR2RUBEL",15);
 
-
+        //System.out.println(test2);
 
         double[] betrage = {10,20,30,40,50};
         Adapter adapter = new Adapter(WRChain);

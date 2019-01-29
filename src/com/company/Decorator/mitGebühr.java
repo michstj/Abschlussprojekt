@@ -1,10 +1,22 @@
 package com.company.Decorator;
 
-public class mitGebühr implements Logger {
+import com.company.WR;
 
-    @Override
-    public void assemble(String variante, double betrag) {
-        System.out.print("Umrechnung, Variante "+variante+ " mit dem Betrag: "+betrag + " || Die Gebühr beträgt: "+betrag*0.05+"€ || Gesamt:"+(betrag+betrag*0.05)+"€ \n");
+public class mitGebühr extends OhneGebühr implements Logger {
+    protected WR wr;
+
+    public mitGebühr (WR wr){
+        super(wr);
 
     }
+
+
+
+    @Override
+    public void assemble() {
+        super.assemble();
+        System.out.println("mit Gebühren von "+Math.round(100*super.wr.getNeuerbetrag()*0.05)/100d);
+    }
+
+
 }
